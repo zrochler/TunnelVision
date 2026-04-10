@@ -1048,6 +1048,7 @@ function populateConnectionProfiles() {
     $('#tv_sidecar_writer_fields').toggle(postGenWriter);
     $('#tv_sidecar_writer_context').val(settings.sidecarWriterContextMessages ?? 15);
     $('#tv_sidecar_writer_max_ops').val(settings.sidecarWriterMaxOps ?? 5);
+    $('#tv_sidecar_writer_prompt_text').val(settings.sidecarWriterPromptText || '');
 }
 
 // ─── Tree Management ─────────────────────────────────────────────
