@@ -195,6 +195,8 @@ export function bindUIEvents() {
     $('#tv_sidecar_post_gen_writer').on('change', onSidecarPostGenWriterToggle);
     $('#tv_sidecar_writer_context').on('input', onSidecarWriterContextChange);
     $('#tv_sidecar_writer_max_ops').on('input', onSidecarWriterMaxOpsChange);
+    $('#tv_sidecar_writer_prompt_text').on('change', onSidecarWriterPromptTextChange);
+    $('#tv_sidecar_writer_prompt_reset').on('click', onSidecarWriterPromptReset);
 
     // Compact tool prompts
     $('#tv_compact_tool_prompts').on('change', onCompactToolPromptsToggle);
@@ -982,6 +984,19 @@ function onSidecarWriterContextChange() {
 function onSidecarWriterMaxOpsChange() {
     const settings = getSettings();
     settings.sidecarWriterMaxOps = Number($(this).val()) || 5;
+    saveSettingsDebounced();
+}
+
+function onSidecarWriterPromptTextChange() {
+    const settings = getSettings();
+    settings.sidecarWriterPromptText = $(this).val() || '';
+    saveSettingsDebounced();
+}
+
+function onSidecarWriterPromptReset() {
+    const settings = getSettings();
+    settings.sidecarWriterPromptText = SETTING_DEFAULTS.sidecarWriterPromptText;
+    $('#tv_sidecar_writer_prompt_text').val(settings.sidecarWriterPromptText);
     saveSettingsDebounced();
 }
 
