@@ -56,7 +56,7 @@ async function buildWriterTreeOverview() {
     }
 
     // Cap to avoid blowing sidecar context (higher than retrieval since we include content snippets)
-    const maxLen = 8000;
+    const maxLen = 30000;
     if (overview.length > maxLen) {
         overview = overview.substring(0, maxLen - 80) + '\n  ... (tree truncated)\n';
     }
