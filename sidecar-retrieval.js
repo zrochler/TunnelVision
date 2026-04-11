@@ -52,7 +52,7 @@ function buildSidecarTreeOverview() {
     }
 
     // Cap to avoid blowing sidecar context
-    const maxLen = 5000;
+    const maxLen = 35000;
     if (overview.length > maxLen) {
         overview = overview.substring(0, maxLen - 80) + '\n  ... (tree truncated)\n';
     }
